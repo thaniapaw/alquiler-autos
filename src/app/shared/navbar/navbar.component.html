@@ -1,0 +1,26 @@
+<div class="row d-flex">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid" style="background-color: #31b189">
+      <a class="d-flex navbar-brand" routerLink="">
+        <i class="fas fa-car fa-2x" style="color: white"></i>
+        <h2>Alquiler de autos</h2>
+      </a>
+      <!-- DROPDOWN -->
+      <div class="row">
+        <div class="col">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn" id="dropdownBasic1" ngbDropdownToggle>
+              <a><i class="fas fa-user fa-1x" style="color: white"></i></a>
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem routerLink="profile">Perfil</button>
+              <button ngbDropdownItem routerLink="rental">Historial</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- hasta aqui -->
+    </div>
+  </nav>
+</div>

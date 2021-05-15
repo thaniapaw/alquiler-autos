@@ -1,0 +1,34 @@
+<div class="row navbar-padre">
+  <div class="col">
+    <app-navbar></app-navbar>
+  </div>
+</div>
+
+<div class="row rental-form-padre" style="text-align: left">
+  <div class="col">
+    <div class="row titulo-historial">
+      <h2 style="text-align: center">HISTORIAL DE ALQUILER</h2>
+    </div>
+    <div class="row">
+      <table class="table" style="text-align: center">
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Oficina de Entrega</th>
+          <th>Fecha de Recogida</th>
+          <th>Fecha de Devolución</th>
+        </tr>
+
+        <tbody class="tbody">
+          <tr *ngFor="let item of collection.data">
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.apellido }}</td>
+            <td>{{ item.oficinaEntrega }}</td>
+            <td>{{ item.recogida }}</td>
+            <td>{{ item.devolucion }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

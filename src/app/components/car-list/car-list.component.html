@@ -1,0 +1,130 @@
+<div>
+  <div class="titulo"><h3>Seleccione un modelo</h3></div>
+  <div class="container">
+    <div class="seleccion-auto">
+      <div class="row" *ngFor="let auto of Autos | async">
+        <div class="separacion">
+          <hr />
+        </div>
+        <div class="col-3">
+          <div class="info-auto">
+            <div class="row nombre-auto">{{ auto.nombre }}</div>
+            <div class="row marca">{{ auto.modelo }}</div>
+            <div class="row descripcion">{{ auto.descripcion }}</div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="row">
+            <div class="col-6">
+              <img src="{{ auto.img }}" alt="" class="img-auto" />
+            </div>
+            <div class="col-6">
+              <span>{{ auto.tipo }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-3 d-flex info-tarifa">
+          <div>
+            <div class="row tarifa">{{ auto.tarifa }}</div>
+            <div class="row text1">{{ auto.textoUno }}</div>
+            <div class="row text2">
+              {{ auto.textoDos }}
+            </div>
+            <!-- <div>{{ auto.id }}</div> -->
+          </div>
+        </div>
+        <div class="col-3 d-flex reservar">
+          <div>
+            <button
+              type="button"
+              class="btn boton-reservar"
+              (click)="open(content)"
+            >
+              Reservar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE BOTON RESERVAR -->
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Datos Personales</h4>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <form [formGroup]="datosForm">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input
+                type="text"
+                formControlName="nombre"
+                class="form-control"
+                placeholder="Nombre"
+              />
+            </div>
+            <div class="form-group">
+              <label>Apellido</label>
+              <input
+                type="text"
+                formControlName="apellido"
+                class="form-control"
+                placeholder="Apellido"
+              />
+            </div>
+            <div class="form-group">
+              <label>Oficina de Entrega</label>
+              <input
+                type="text"
+                formControlName="oficinaEntrega"
+                class="form-control"
+                placeholder="Oficina"
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Fecha de Recogida</label>
+              <input
+                type="text"
+                formControlName="recogida"
+                class="form-control"
+                placeholder="dd-mm-yyyy"
+              />
+            </div>
+            <div class="form-group">
+              <label>Fecha de Devolución</label>
+              <input
+                type="text"
+                formControlName="devolucion"
+                class="form-control"
+                placeholder="dd-mm-yyyy"
+              />
+            </div>
+          </form>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-outline-dark"
+        (click)="guardarInformacionReserva()"
+      >
+        Guardar
+      </button>
+    </div>
+  </ng-template>
+
+  <pre>{{ closeResult }}</pre>
+</div>
